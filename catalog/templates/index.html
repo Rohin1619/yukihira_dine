@@ -1,0 +1,41 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static '/css/yukihara.css' %}" />
+
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+   </head>
+<body>
+  <nav>
+    <div class="menu">
+      <div class="logo">
+        <a href="#">
+            <img src="{% static 'images/wlogo.png' %}" height="80px">
+        </a>
+      </div>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Menu</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Feedback</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="img"></div>
+  <div class="center">
+    <img src="{% static 'images/wlogo.png' %}" height="250px">
+    <div class="title">Yukihira Family Dine</div>
+    <div class="sub_title">Great Foods & Good Vibes</div>
+    <div class="btns">
+      <button>Learn More</button>
+      <button>View Menu</button>
+    </div>
+  </div>
+</body>
+</html>

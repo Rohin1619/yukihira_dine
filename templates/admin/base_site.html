@@ -1,0 +1,13 @@
+{% extends "admin/base.html" %}
+
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'static/admin/css/base.css' %}" />
+
+{% block title %}{% if subtitle %}{{ subtitle }} | {% endif %}{{ title }} | {{ site_title|default:_('Django site admin') }}{% endblock %}
+
+{% block branding %}
+<h1 id="site-name"><a href="{% url 'admin:index' %}">Yukihira Family Dine </a></h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}

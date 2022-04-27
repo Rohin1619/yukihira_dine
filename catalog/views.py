@@ -7,6 +7,10 @@ from .models import *
 from .forms import OrderForm
 # Create your views here.
 
+def index(request):
+
+    return render(request, 'index.html')
+
 def home(request):
     orders = Order.objects.all()
     tables = Table.objects.all()
