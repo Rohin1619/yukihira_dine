@@ -5,6 +5,8 @@ from django.forms import inlineformset_factory
 from matplotlib.style import context
 from .models import *
 from .forms import OrderForm
+from django.core.checks import messages
+from django.contrib.auth import REDIRECT_FIELD_NAME, authenticate, login, logout
 # Create your views here.
 
 def index(request):
@@ -82,3 +84,23 @@ def deleteOrder(request, pk):
 
 	context = {'item':order}
 	return render(request, 'delete.html', context)
+
+
+def login_user(request):
+    if request.POST:
+        table_no = request.POST['table_no']
+        zone = request.POST['zone']
+
+        user = authenticate(username=table_no, zone=zone)
+
+        if user is not None:
+            if user.is_active:
+                login(request, user)
+                return redirect('index')
+        else:
+            messages.error(request, 'Invalid table_no or zone!')
+
+        
+        print(user)
+    context = {}
+    return render(request, 'login.html', context)

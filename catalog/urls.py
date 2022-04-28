@@ -6,6 +6,7 @@ urlpatterns = [
     path('index/', views.index, name="index"),
     path('products/', views.products, name="products"),
     path('table/<str:pk_test>/', views.table, name="table"),
+    path('login/', views.login_user, name='login-custom'),
 
     
     path('create_order/<str:pk>/', views.createOrder, name="create_order"),

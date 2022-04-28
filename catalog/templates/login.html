@@ -1,0 +1,62 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static '/css/login.css' %}" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<h2>Yukihira Family Dine</h2>
+
+<div class="img"></div>
+<button class="Login" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+<div id="id01" class="modal">
+  
+  {% block main %}
+  <div id="login">
+    
+      <form class="modal-content animate" name="LoginForm" action="{%url 'login-custom'%}" method="post">
+      {% csrf_token %}
+        <div class="imgcontainer">
+          <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+        </div>
+        {% if next %}
+            <input type="hidden" name="next" value="{{ next }}" />
+        {% endif %}
+        <div class="container">
+          <div class="control-group">
+              <label class="control-label" for="table_no">Table no.</label>
+              <div class="controls">
+                  <input type="text" id="table_no" name="table_no"  placeholder="Username">
+              </div>
+          </div>
+          <div class="control-group">
+              <label class="control-label" for="zone">Zone</label>
+              <div class="controls">
+                  <input type="password" name="zone" id="zone" placeholder="Password">
+              </div>
+          </div>
+          <div class="control-group">
+              <div class="controls">
+                  <button type="submit" class="btn">Login</button>
+              </div>
+          </div>
+          {% endblock %}
+        </div>
+        <div class="container" style="background-color:#f1f1f1">
+          <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+          <span class="psw">Forgot <a class="password" href="#">password?</a></span>
+        </div>
+    </form>
+  </div>
+</div>
+
+
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}

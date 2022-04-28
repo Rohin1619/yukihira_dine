@@ -17,3 +17,8 @@ body{
 #orders-pending{
     background-color: #7CD1C0;
 }
+
+h5{
+    text-align: center;
+    align-items: center;
+}
